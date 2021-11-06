@@ -6,8 +6,8 @@
 print("The price of apples and oranges are:\nApples: 20 pesos\nOranges: 25 pesos")
 
 def askUser():
-    appleCount = int(input("How many apples do you want to buy?:"))
-    orangeCount = int(input("How many oranges do you want to buy?:"))
+    appleCount = int(input("How many apples do you want to buy?: "))
+    orangeCount = int(input("How many oranges do you want to buy?: "))
     return appleCount, orangeCount
 
 #Step 2 Compute the price of apples and oranges and their total
@@ -17,5 +17,11 @@ def computePrice(appleCount_, orangeCount_):
     totalPrice = applePrice+orangePrice
     return totalPrice
 
+#Step 3 Let the user know the total amount
+def userKnow():
+    print(f"The total amount is {totalPrice}.")
+
+
 appleCount, orangeCount = askUser()
 totalPrice = computePrice(appleCount, orangeCount)
+userKnow()
