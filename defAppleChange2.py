@@ -4,23 +4,30 @@
 #     how many apples the use can buy and compute the change
 
 #Step1 Ask the amount of money the user have
-def askUser():
-    moneyNumber = int(input("How much money do you have?: "))
-    applePrice = int(input("What is the current cost of apples?: "))
-    return moneyNumber, applePrice
-
-#Step2 Calculate the maximum number of apples the money can buy
+#      and calculate the maximum number of apples the money can buy
 #      and the change
-def maxApples(money_, applePrice_):
-    maxNumber = money_//applePrice_
-    appleChange = money_%applePrice_
-    return maxNumber, appleChange
+def askingCompute():
+    global moneyAmount
+    moneyAmount = int(input("\nHow much money do you have?: "))
+    global applePrice
+    applePrice = int(input("How much are apples?: P"))
+    def appleCompute():
+        global appleCount 
+        appleCount = moneyAmount//applePrice        
+    def moneyChange():
+        global appleChange
+        appleChange = moneyAmount%applePrice
+        
+    appleCompute()
+    moneyChange()
 
-#Step3 Let the user know the maximum number of apples the money can buy
+#Step2 Let the user know the maximum number of apples the money can buy
 #      and the change
 def userKnow():
-    print(f"You can buy {maxNumber} apples and your change is {appleChange} pesos.")
+    if moneyAmount<applePrice:
+        print("\nNot enough money.")
+    else:
+        print(f"You can buy {appleCount} apples and your change is {appleChange} pesos.")
 
-moneyNumber, applePrice = askUser()
-maxNumber, appleChange = maxApples(moneyNumber, applePrice)
+askingCompute()
 userKnow()
